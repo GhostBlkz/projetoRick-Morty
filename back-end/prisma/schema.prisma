@@ -20,11 +20,3 @@ model User {
   password  String   //senha do usuario
 }
 
-model Character {
-  id          Int      @id @default(autoincrement()) //id do personagem
-  name        String  //nome do personagem
-  image       String  //Url da imagem do personagem
-  status      String  // status atual do personagem
-  species     String  // especie do personagem
-  location    String  //localização atual do personagem
-}
