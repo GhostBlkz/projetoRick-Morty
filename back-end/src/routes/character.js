@@ -6,3 +6,5 @@ const router = Router()
 
 //rota pra recuperar todos personagens
 router.get("/", character.retrieveAll)
+
+export default router

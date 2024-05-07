@@ -5,11 +5,13 @@ export default function(req, res, next) {
   /*
     Algumas rotas, como /user/ e /user/login, poderão ser
     acessadas sem necessidade de verificação do
-    token para a criação elogin de um usuario
+    token para a criação e login de um usuario
   */
   const bypassRoutes = [
     { url: '/users/login', method: 'POST' },
-    { url: '/users/', method: 'POST' }
+    { url: '/users', method: 'POST' }
+  
+    
   ]
 
   /* 

@@ -26,5 +26,7 @@ app.use(auth)
 
 import userRoute from './routes/user.js'
 app.use('/users', userRoute)
+import characterRoute from './routes/character.js'
+app.use('/characters', characterRoute)
 
 export default app;
