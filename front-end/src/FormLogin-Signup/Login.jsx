@@ -43,7 +43,7 @@ export default function FormLogin() {
     //Notificações e Waiting
     const [state, setState] = React.useState({
         showWaiting: false
-      })
+    })
     const { showWaiting } = state
 
     //Inputs
@@ -53,7 +53,7 @@ export default function FormLogin() {
 
     const [formValid, setFormValid] = useState('')
 
-    const {setAuthUser} = React.useContext(AuthUSerContext)
+    const { setAuthUser } = React.useContext(AuthUSerContext)
 
 
 
@@ -91,22 +91,23 @@ export default function FormLogin() {
                 'Content-Type': 'application/json'
             }
         }
-        
-        setState({...state, showWaiting: true})
-        axios.post('http://localhost:8080/users/login', data, headers)
-        
-        .then((response) => { // Acessa o then quando a API retornar status 200 e guarda token no local storage (inseguro)
-           
-            window.localStorage.setItem(import.meta.env.VITE_AUTH_TOKEN_NAME, response.data.token)
 
-            setAuthUser(response.data)
+        setState({ ...state, showWaiting: true })
+        axios.post('http://localhost:8080/users/login', data, headers)
+
+            .then((response) => { // Acessa o then quando a API retornar status 200 e guarda token no local storage (inseguro)
+
+                window.localStorage.setItem(import.meta.env.VITE_AUTH_TOKEN_NAME, response.data.token)
+
+                setAuthUser(response.data)
                 // Atribuir a mensagem no state message
                 //console.log(response.data.mensagem);
 
                 // Limpar os dados do state e os dados dos campos do formulário
 
                 setFormValid("Logado com Sucesso");
-                setState({...state, showWaiting: false})
+                setState({ ...state, showWaiting: false })
+
 
             }).catch((err) => { // Acessa o catch quando a API retornar erro
                 console.log('Log de erro: ' + err)
@@ -115,21 +116,21 @@ export default function FormLogin() {
                 //console.log(err.response.data.mensagem);
                 if (err.response) {
                     setFormValid("err.response.data.mensagem")
-                    setState({...state, showWaiting: false})
+                    setState({ ...state, showWaiting: false })
 
                 } else {
                     setFormValid("erro generico");
-                    setState({...state, showWaiting: false})
+                    setState({ ...state, showWaiting: false })
 
                 }
             });
 
 
 
-
-
     }
 
+    if (formValid == "Logado com Sucesso") navigate('/character')
+   
     // Input Error 
 
     const [emailError, setEmailError] = useState(false);
@@ -158,11 +159,11 @@ export default function FormLogin() {
         setPasswordError(false)
     }
 
-    
-        //fecha a barra de notificação
-       
-        
-    
+
+    //fecha a barra de notificação
+
+
+
 
 
 
@@ -219,9 +220,9 @@ export default function FormLogin() {
                 </Button>
             </p>
 
-            {formValid && (<Alert  severity="success">
-                    {formValid}
-                    </Alert>)}
+            {formValid && (<Alert severity="success">
+                {formValid}
+            </Alert>)}
 
 
 
