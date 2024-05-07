@@ -3,12 +3,13 @@ import jwt from 'jsonwebtoken'
 export default function(req, res, next) {
 
   /*
-    Algumas rotas, como /user/login, poderão ser
+    Algumas rotas, como /user/ e /user/login, poderão ser
     acessadas sem necessidade de verificação do
-    token
+    token para a criação elogin de um usuario
   */
   const bypassRoutes = [
-    { url: '/users/login', method: 'POST' }
+    { url: '/users/login', method: 'POST' },
+    { url: '/users/', method: 'POST' }
   ]
 
   /* 
