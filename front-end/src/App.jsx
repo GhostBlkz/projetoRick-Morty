@@ -16,6 +16,7 @@ import AppRoutes from './Routes/AppRoutes';
 import { BrowserRouter } from 'react-router-dom';
 import  AuthUSerContext  from './contexts/AuthUserContext';
 import myfetch from './lib/myfetch';
+import HeaderBar from './ui/HeaderBar';
 
 
 function App() {
@@ -50,6 +51,7 @@ function App() {
         <BrowserRouter>
           <CssBaseline />
           <AuthUSerContext.Provider value={{authUser, setAuthUser}}>
+          <HeaderBar/>
           <Box sx={{ margin: '24px 24px 72px 24px', }}>
           <AppRoutes />
           </Box>

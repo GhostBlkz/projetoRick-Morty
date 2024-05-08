@@ -3,12 +3,12 @@ import { yellow } from '@mui/material/colors'
 
 const theme = createTheme({
     palette: {
-        mode: 'dark',
+        mode: 'light',
         primary: { //cor primaria
-            main: "#f5f5f5"
+            main: yellow[500]
         },
         secondary: { //cor secundaria
-            main: yellow[500]
+            main: "#f5f5f5"
         }
     },
     typography: {

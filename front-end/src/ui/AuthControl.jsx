@@ -6,7 +6,7 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { useNavigate } from "react-router-dom";
 
 export default function AuthControl() {
-    const { authUser, setAuthUser } = React.useContext(AuthUSerContext)
+    const { authUser, setAuthUser } = React.useContext(AuthUserContext)
 
     const navigate = useNavigate()
 
@@ -21,7 +21,7 @@ export default function AuthControl() {
             setAuthUser(null)
 
             // sera redirecionado para a pagina de login
-            navigate('/login')
+            navigate('/')
         }
     }
 
@@ -46,7 +46,7 @@ export default function AuthControl() {
     }
     else {
         return (
-            <Link to="/login">
+            <Link to="/">
                 <Button color="secondary">Entrar</Button>
             </Link>
         )
