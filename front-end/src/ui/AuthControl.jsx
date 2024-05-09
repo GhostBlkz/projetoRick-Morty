@@ -4,10 +4,12 @@ import AuthUserContext from "../contexts/AuthUserContext";
 import { Link } from "react-router-dom";
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { useNavigate } from "react-router-dom";
+import theme from "./theme";
 
 export default function AuthControl() {
     const { authUser, setAuthUser } = React.useContext(AuthUserContext)
-
+    console.log(authUser)
+    
     const navigate = useNavigate()
 
     function handleLogoutButtonClick() {
@@ -28,12 +30,12 @@ export default function AuthControl() {
     if (authUser) {
         return (
             <>
-                <AccountCircleIcon sx={{ mr: 1 }} />
-                <Typography variant="caption" fontSize={16}>
-                    {authUser.fullname}
+                <AccountCircleIcon color="terciary" sx={{ mr: 1 }} />
+                <Typography variant="caption" fontSize={16} color={theme.palette.terciary.main}>
+                    {authUser.name}
                 </Typography>
                 <Button
-                    color="secondary"
+                    color="terciary"
                     size="small"
                     onClick={handleLogoutButtonClick}
                     sx={{
@@ -47,7 +49,7 @@ export default function AuthControl() {
     else {
         return (
             <Link to="/">
-                <Button color="secondary">Entrar</Button>
+                <Button color="terciary">Entrar</Button>
             </Link>
         )
     }

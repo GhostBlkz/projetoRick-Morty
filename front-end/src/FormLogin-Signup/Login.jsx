@@ -31,7 +31,6 @@ export default function FormLogin() {
 
     //Campo de senha
     const [showPassword, setShowPassword] = React.useState(false);
-    //const {setAuthUser} = React.useContext(AuthUSerContext)
     const navigate = useNavigate()
 
     const handleClickShowPassword = () => setShowPassword((show) => !show);
@@ -93,17 +92,16 @@ export default function FormLogin() {
         }
 
         setState({ ...state, showWaiting: true })
-        axios.post('http://localhost:8080/users/login', data, headers)
+        await axios.post('http://localhost:8080/users/login', data, headers)
 
             .then((response) => { // Acessa o then quando a API retornar status 200 e guarda token no local storage (inseguro)
+                const {token, user} = response.data //primeiro separo os dados do token e do user que estao juntos
+                console.log(response.data)
 
-                window.localStorage.setItem(import.meta.env.VITE_AUTH_TOKEN_NAME, response.data.token)
+                window.localStorage.setItem(import.meta.env.VITE_AUTH_TOKEN_NAME, token) //mando somente o token para o local storage
 
-                setAuthUser(response.data)
-                // Atribuir a mensagem no state message
-                //console.log(response.data.mensagem);
+                setAuthUser(user) //e guardo o user no contexto AuthUser
 
-                // Limpar os dados do state e os dados dos campos do formulário
 
                 setFormValid("Logado com Sucesso");
                 setState({ ...state, showWaiting: false })
@@ -112,10 +110,8 @@ export default function FormLogin() {
             }).catch((err) => { // Acessa o catch quando a API retornar erro
                 console.log('Log de erro: ' + err)
 
-                // Atribuir a mensagem no state message
-                //console.log(err.response.data.mensagem);
                 if (err.response) {
-                    setFormValid("err.response.data.mensagem")
+                    setFormValid("erro" + err.response)
                     setState({ ...state, showWaiting: false })
 
                 } else {
@@ -129,7 +125,7 @@ export default function FormLogin() {
 
     }
 
-    if (formValid == "Logado com Sucesso") navigate('/character')
+    if (formValid == "Logado com Sucesso") navigate('/character') //se logar com sucesso redireciona para a pagina de personagens
    
     // Input Error 
 

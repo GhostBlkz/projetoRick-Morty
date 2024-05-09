@@ -1,5 +1,5 @@
 import {createTheme} from '@mui/material/styles'
-import { yellow } from '@mui/material/colors'
+import { yellow, blue } from '@mui/material/colors'
 
 const theme = createTheme({
     palette: {
@@ -9,6 +9,9 @@ const theme = createTheme({
         },
         secondary: { //cor secundaria
             main: "#f5f5f5"
+        },
+        terciary: { // cor terciaria
+            main: blue[500]
         }
     },
     typography: {

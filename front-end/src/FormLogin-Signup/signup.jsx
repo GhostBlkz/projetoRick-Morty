@@ -58,7 +58,7 @@ export default function FormSignup() {
         setSucess(null)
 
         if(usernameError || !usernameInput){
-            setFormValid("Usuario deve conter 5 a 15 caracters")
+            setFormValid("Usuario deve conter 2 a 15 caracters")
             return
         }
         if(emailError || !emailInput){
@@ -96,7 +96,7 @@ export default function FormSignup() {
         // Fazer a requisição para o servidor utilizando axios, indicando o método da requisição, o endereço, enviar os dados do formulário e o cabeçalho
         
         setState({...state, showWaiting: true})
-        axios.post('http://localhost:8080/users/', data, headers)
+       await axios.post('http://localhost:8080/users/', data, headers)
         
         .then((response) => { // Acessa o then quando a API retornar status 200
 
@@ -136,7 +136,7 @@ export default function FormSignup() {
     
     //Validation para onBlur Username
     const handleUsername = () => {
-        if(usernameInput.length == 0 || usernameInput.length < 5 || usernameInput.length > 20 ){ 
+        if(usernameInput.length == 0 || usernameInput.length < 2 || usernameInput.length > 20 ){ 
             setUsernameError(true);
             
             return;

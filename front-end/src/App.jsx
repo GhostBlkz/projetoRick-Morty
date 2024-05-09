@@ -26,6 +26,7 @@ function App() {
     try{
       const authUser = await myfetch.get('/users/me')
       if(authUser) setAuthUser(authUser)
+
     }
       
     catch(error){

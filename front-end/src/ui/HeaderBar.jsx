@@ -1,7 +1,6 @@
 import * as React from 'react';
 import {AppBar, Box, Toolbar} from '@mui/material';
 
-
 import AuthControl from './AuthControl';
 
 export default function HeaderBar() {
@@ -12,7 +11,7 @@ export default function HeaderBar() {
             position: 'fixed',
             }}>
           <AppBar position="fixed" >
-            <Toolbar>
+            <Toolbar sx={{justifyContent: 'flex-end'}}>
               <AuthControl/>
             </Toolbar>
           </AppBar>

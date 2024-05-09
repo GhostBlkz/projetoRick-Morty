@@ -11,7 +11,7 @@ export default function AppRoutes() {
     return (
       <Routes>
         <Route path="/" element={ <LoginPage /> } />
-        <Route path="/character" element={  <CharacterPage />  } />
+        <Route path="/character" element={  <AuthGuard> <CharacterPage /> </AuthGuard>  } />
 
       </Routes>
     )

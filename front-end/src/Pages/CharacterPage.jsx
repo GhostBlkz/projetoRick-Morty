@@ -111,7 +111,7 @@ useEffect(() => {
   //Irei usar Grid e card para exibir os personagems e seus dados
   return (
     <>
-    <Grid container justifyContent='center' alignContent={'space-between'} spacing={4} xs={12}>
+    <Grid container justifyContent='center' alignContent={'space-between'} spacing={4}>
       {characters.map((character) => (
         <Grid item key={character.id}>
 
