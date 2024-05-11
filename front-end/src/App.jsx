@@ -24,7 +24,7 @@ function App() {
   const [authUser, setAuthUser] = React.useState(null)
   async function fetchAuthUser() {
     try{
-      const authUser = await myfetch.get('/users/me')
+      const authUser = await myfetch.get('/users/me') //uso a biblioteca myfetch para obter os dados do usuário
       if(authUser) setAuthUser(authUser)
 
     }
